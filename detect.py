@@ -8,7 +8,7 @@ import cv2
 hog = cv2.HOGDescriptor()
 hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 
-cap = cv2.VideoCapture('vid.mp4') 
+cap = cv2.VideoCapture('class.mp4') 
 
 imageNum = 0
 
