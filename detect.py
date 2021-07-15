@@ -54,8 +54,8 @@ while True:
 	# draw the final bounding boxes
 	for (xA, yA, xB, yB) in pick:
 		cv2.rectangle(image, (xA, yA), (xB, yB), (0, 255, 0), 2)
-		print(str(imageNum) + ",-1" + ',' + str(xA) + "," + str(yA) + "," + str(xB) + "," + str(yB) + "," + str(format(weights[i,0], ".3f")) + ',' + "-1,-1,-1\n")
-		f.write(str(imageNum) + ",-1" + ',' + str(xA) + "," + str(yA) + "," + str(xB) + "," + str(yB) + "," + str(format(weights[i,0], ".3f")) + ',' + "-1,-1,-1\n")
+		print(str(imageNum) + ",-1" + ',' + str(xA) + "," + str(yA) + "," + str(xB-xA) + "," + str(yB-yA) + "," + str(format(weights[i,0], ".3f")) + ',' + "-1,-1,-1\n")
+		f.write(str(imageNum) + ",-1" + ',' + str(xA) + "," + str(yA) + "," + str(xB-xA) + "," + str(yB-yA) + "," + str(format(weights[i,0], ".3f")) + ',' + "-1,-1,-1\n")
 		i += 1
 
 	# print some info on the bounding boxes
