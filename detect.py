@@ -9,7 +9,7 @@ import os
 hog = cv2.HOGDescriptor()
 hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 
-cap = cv2.VideoCapture('vid.mp4') 
+cap = cv2.VideoCapture('class.mp4') 
 
 imageNum = 0
 path = 'C:/Users/manas/Desktop/sort/yeet/img1'
@@ -24,16 +24,16 @@ while True:
 	image = imutils.resize(image, width=min(640, image.shape[1]))
 	orig = image.copy()
 
-	if (imageNum < 10):
-		cv2.imwrite(os.path.join(path , '00000'+ str(imageNum) + '.jpg'), image)
-	elif (imageNum >= 10 and imageNum < 100):
-		cv2.imwrite(os.path.join(path , '0000'+ str(imageNum) + '.jpg'), image)
-	elif (imageNum >= 100 and imageNum < 1000):
-		cv2.imwrite(os.path.join(path , '000'+ str(imageNum) + '.jpg'), image)
-	elif (imageNum >= 1000 and imageNum < 10000):
-		cv2.imwrite(os.path.join(path , '00'+ str(imageNum) + '.jpg'), image)
-	else:
-		cv2.imwrite(os.path.join(path , '0'+ str(imageNum) + '.jpg'), image)
+	# if (imageNum < 10):
+	# 	cv2.imwrite(os.path.join(path , '00000'+ str(imageNum) + '.jpg'), image)
+	# elif (imageNum >= 10 and imageNum < 100):
+	# 	cv2.imwrite(os.path.join(path , '0000'+ str(imageNum) + '.jpg'), image)
+	# elif (imageNum >= 100 and imageNum < 1000):
+	# 	cv2.imwrite(os.path.join(path , '000'+ str(imageNum) + '.jpg'), image)
+	# elif (imageNum >= 1000 and imageNum < 10000):
+	# 	cv2.imwrite(os.path.join(path , '00'+ str(imageNum) + '.jpg'), image)
+	# else:
+	# 	cv2.imwrite(os.path.join(path , '0'+ str(imageNum) + '.jpg'), image)
 
 	# detect people in the image
 	(rects, weights) = hog.detectMultiScale(image, winStride=(4, 4),
@@ -55,7 +55,7 @@ while True:
 	for (xA, yA, xB, yB) in pick:
 		cv2.rectangle(image, (xA, yA), (xB, yB), (0, 255, 0), 2)
 		print(str(imageNum) + ",-1" + ',' + str(xA) + "," + str(yA) + "," + str(xB-xA) + "," + str(yB-yA) + "," + str(format(weights[i,0], ".3f")) + ',' + "-1,-1,-1\n")
-		f.write(str(imageNum) + ",-1" + ',' + str(xA) + "," + str(yA) + "," + str(xB-xA) + "," + str(yB-yA) + "," + str(format(weights[i,0], ".3f")) + ',' + "-1,-1,-1\n")
+		# f.write(str(imageNum) + ",-1" + ',' + str(xA) + "," + str(yA) + "," + str(xB-xA) + "," + str(yB-yA) + "," + str(format(weights[i,0], ".3f")) + ',' + "-1,-1,-1\n")
 		i += 1
 
 	# print some info on the bounding boxes
