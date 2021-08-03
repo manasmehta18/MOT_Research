@@ -5,6 +5,7 @@ import cv2
 import xml.etree.ElementTree as ET
 import os
 import math
+from PIL import Image
 
 imageNum = 0
 
@@ -35,17 +36,20 @@ for frame in root:
                         # img[i][j] = 255
                         img[i][j] = 255 * math.exp(-((( j - xc ) ** 2 )/( 2 * (( sigma * w ) ** 2 )) + (( i - yc ) ** 2 )/( 2 * (( sigma * h ) ** 2 ))))
 
+        im = Image.fromarray(img)
+        im.save(os.path.join(path , '00000'+ str(imageNum) + '_mask.gif'))
+
         cv2.imshow("yee", img)
         if (imageNum < 10):
-            cv2.imwrite(os.path.join(path , '00000'+ str(imageNum) + '.jpg'), img)
+            im.save(os.path.join(path , '00000'+ str(imageNum) + '_mask.gif'))
         elif (imageNum >= 10 and imageNum < 100):
-            cv2.imwrite(os.path.join(path , '0000'+ str(imageNum) + '.jpg'), img)
+            im.save(os.path.join(path , '0000'+ str(imageNum) + '_mask.gif'))
         elif (imageNum >= 100 and imageNum < 1000):
-            cv2.imwrite(os.path.join(path , '000'+ str(imageNum) + '.jpg'), img)
+            im.save(os.path.join(path , '000'+ str(imageNum) + '_mask.gif'))
         elif (imageNum >= 1000 and imageNum < 10000):
-            cv2.imwrite(os.path.join(path , '00'+ str(imageNum) + '.jpg'), img)
+            im.save(os.path.join(path , '00'+ str(imageNum) + '_mask.gif'))
         else:
-            cv2.imwrite(os.path.join(path , '0'+ str(imageNum) + '.jpg'), img)
+            im.save(os.path.join(path , '0'+ str(imageNum) + '_mask.gif'))
 
                 
 
