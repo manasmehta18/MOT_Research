@@ -34,19 +34,18 @@ for frame in root:
                         img[i][j] = 255
 
         im = Image.fromarray(img)
-        im.save(os.path.join(path , '00000'+ str(imageNum) + '_mask.gif'))
 
         cv2.imshow("yee", img)
         if (imageNum < 10):
-            im.save(os.path.join(path , '00000'+ str(imageNum) + '_mask.gif'))
+            im.save(os.path.join(path , '00000'+ str(imageNum) + '.gif'))
         elif (imageNum >= 10 and imageNum < 100):
-            im.save(os.path.join(path , '0000'+ str(imageNum) + '_mask.gif'))
+            im.save(os.path.join(path , '0000'+ str(imageNum) + '.gif'))
         elif (imageNum >= 100 and imageNum < 1000):
-            im.save(os.path.join(path , '000'+ str(imageNum) + '_mask.gif'))
+            im.save(os.path.join(path , '000'+ str(imageNum) + '.gif'))
         elif (imageNum >= 1000 and imageNum < 10000):
-            im.save(os.path.join(path , '00'+ str(imageNum) + '_mask.gif'))
+            im.save(os.path.join(path , '00'+ str(imageNum) + '.gif'))
         else:
-            im.save(os.path.join(path , '0'+ str(imageNum) + '_mask.gif'))
+            im.save(os.path.join(path , '0'+ str(imageNum) + '.gif'))
 
 
 
