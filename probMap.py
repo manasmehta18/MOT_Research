@@ -10,7 +10,7 @@ imageNum = 0
 tree = ET.parse('data-tud/gt/ETH-Person/bahnhof_assc_gt.xml')
 root = tree.getroot()
 
-path = 'C:/Users/manas/Desktop/unet/Pytorch-UNet-1.0/Pytorch-UNet-1.0/data/masks'
+path = 'C:/Users/manas/Desktop/unet/Pytorch-UNet-1.0/YOOO/masks'
 
 for frame in root:
     for objectlist in frame:
@@ -24,14 +24,13 @@ for frame in root:
             for box in object:
                 print(box.tag, box.attrib)
                 xc = int(float(box.get("xc")))
-                w = int(float(box.get("w")))
+                w = int(float(box.get("w"))/2)
                 yc = int(float(box.get("yc")))
-                h = int(float(box.get("h")))
+                h = int(float(box.get("h"))/2)
 
-                for i in range (yc, yc + h):
-                    for j in range (xc, xc + w):
-                        if (i < 480 and j < 640):
-                            img[i][j] = 255
+                for i in range (yc - h, yc + h):
+                    for j in range (xc - w, xc + w):
+                        img[i][j] = 255
 
         cv2.imshow("yee", img)
         if (imageNum < 10):
