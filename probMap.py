@@ -18,8 +18,8 @@ for frame in root:
 
         imageNum += 1
 
-        img = np.zeros([480,640],dtype=np.uint8)
-        img.fill(0) # or img[:] = 255
+        img = np.zeros([480,640],dtype=np.float32)
+        img.fill(0.0) # or img[:] = 255
 
         for object in objectlist:
             for box in object:
@@ -31,21 +31,19 @@ for frame in root:
 
                 for i in range (yc - h, yc + h):
                     for j in range (xc - w, xc + w):
-                        img[i][j] = 255
-
-        im = Image.fromarray(img)
+                        img[i][j] = 1.0
 
         cv2.imshow("yee", img)
         if (imageNum < 10):
-            im.save(os.path.join(path , '00000'+ str(imageNum) + '.gif'))
+            cv2.imwrite(os.path.join(path , '00000'+ str(imageNum) + '.jpg'), img)
         elif (imageNum >= 10 and imageNum < 100):
-            im.save(os.path.join(path , '0000'+ str(imageNum) + '.gif'))
+            cv2.imwrite(os.path.join(path , '0000'+ str(imageNum) + '.jpg'), img)
         elif (imageNum >= 100 and imageNum < 1000):
-            im.save(os.path.join(path , '000'+ str(imageNum) + '.gif'))
+            cv2.imwrite(os.path.join(path , '000'+ str(imageNum) + '.jpg'), img)
         elif (imageNum >= 1000 and imageNum < 10000):
-            im.save(os.path.join(path , '00'+ str(imageNum) + '.gif'))
+            cv2.imwrite(os.path.join(path , '00'+ str(imageNum) + '.jpg'), img)
         else:
-            im.save(os.path.join(path , '0'+ str(imageNum) + '.gif'))
+            cv2.imwrite(os.path.join(path , '0'+ str(imageNum) + '.jpg'), img)
 
 
 
