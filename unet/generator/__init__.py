@@ -1,1 +1,1 @@
-from .generator_model import UNet
+from .generator_model import Generator

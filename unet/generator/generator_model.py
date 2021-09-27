@@ -1,13 +1,12 @@
 """ Full assembly of the parts to form the complete network """
 
 import torch.nn.functional as F
-
 from .generator_parts import *
+from einops import rearrange
 
-
-class UNet(nn.Module):
+class Generator(nn.Module):
     def __init__(self, n_channels, n_classes, bilinear=True):
-        super(UNet, self).__init__()
+        super(Generator, self).__init__()
         self.n_channels = n_channels
         self.n_classes = n_classes
         self.bilinear = bilinear
@@ -36,3 +35,31 @@ class UNet(nn.Module):
         x = self.up4(x, x1)
         logits = self.outc(x)
         return logits
+
+
+class Encoder(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.ck1 = Ck(in_channels=3, out_channels=64)
+        self.ck2 = Ck(in_channels=64, out_channels=128)
+        self.ck3 = Ck(in_channels=128, out_channels=256)
+
+    def forward(self, x):
+        x = self.ck1(x)
+        x = self.ck2(x)
+        x = self.ck3(x)
+        return x
+
+
+class Encoder(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.ck1 = Ck(in_channels=3, out_channels=64)
+        self.ck2 = Ck(in_channels=64, out_channels=128)
+        self.ck3 = Ck(in_channels=128, out_channels=256)
+
+    def forward(self, x):
+        x = self.ck1(x)
+        x = self.ck2(x)
+        x = self.ck3(x)
+        return x
