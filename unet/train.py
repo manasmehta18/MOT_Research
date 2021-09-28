@@ -11,6 +11,7 @@ from tqdm import tqdm
 
 from eval import eval_net
 from unet import UNet
+from generator import Generator
 
 from torch.utils.tensorboard import SummaryWriter
 from utils.dataset import BasicDataset
@@ -154,11 +155,12 @@ if __name__ == '__main__':
     #   - For 1 class and background, use n_classes=1
     #   - For 2 classes, use n_classes=1
     #   - For N > 2 classes, use n_classes=N
-    net = UNet(n_channels=3, n_classes=1, bilinear=True)
+    # net = UNet(n_channels=3, n_classes=1, bilinear=True)
+    net = Generator(n_channels=3, n_classes=1)
     logging.info(f'Network:\n'
                  f'\t{net.n_channels} input channels\n'
-                 f'\t{net.n_classes} output channels (classes)\n'
-                 f'\t{"Bilinear" if net.bilinear else "Transposed conv"} upscaling')
+                 f'\t{net.n_classes} output channels (classes)\n')
+                #  f'\t{"Bilinear" if net.bilinear else "Transposed conv"} upscaling')
 
     if args.load:
         net.load_state_dict(

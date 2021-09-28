@@ -5,8 +5,11 @@ from .generator_parts import *
 from einops import rearrange
 
 class Generator(nn.Module):
-    def __init__(self):
+    def __init__(self, n_channels, n_classes):
         super(Generator, self).__init__()
+        self.n_channels = n_channels
+        self.n_classes = n_classes
+
         self.encoder = Encoder()
         self.decoder = Decoder()
 
@@ -38,7 +41,7 @@ class Decoder(nn.Module):
         self.down3 = DownCk(in_channels=64, out_channels=1)
 
     def forward(self, x):
-        x = self.ck1(x)
-        x = self.ck2(x)
-        x = self.ck3(x)
+        x = self.down1(x)
+        x = self.down2(x)
+        x = self.down3(x)
         return x
