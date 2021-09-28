@@ -7,19 +7,35 @@ import torch.nn.functional as F
 from einops import rearrange
 from torch.nn.modules.batchnorm import BatchNorm2d
 
-class Ck(nn.Module):
+
+class UpCk(nn.Module):
     """ (convolution => [BN] => ReLU) """
 
     def __init__(self, in_channels, out_channels):
         super().__init__()
-        self.ck = nn.Sequential(
+        self.upck = nn.Sequential(
             nn.Conv2d(in_channels=in_channels, out_channels=out_channels, stride=2, kernel_size=4),
             nn.BatchNorm2d(out_channels),
             nn.ReLU(inplace=True)
         )
 
     def forward(self, x):
-        return self.ck(x)
+        return self.upck(x)
+
+
+class DownCk(nn.Module):
+    """ (convolution => [BN] => ReLU) """
+
+    def __init__(self, in_channels, out_channels):
+        super().__init__()
+        self.downck = nn.Sequential(
+            nn.ConvTranspose2d(in_channels=in_channels, out_channels=out_channels, stride=2, kernel_size=4),
+            nn.BatchNorm2d(out_channels),
+            nn.ReLU(inplace=True)
+        )
+
+    def forward(self, x):
+        return self.downck(x)
 
 
 class CDk(nn.Module):
