@@ -52,45 +52,45 @@ for frame in root:
                         img[i][j] = 1.0
 
         if(imageNum == 1):
-            imgGen(1,51,img)
-        elif(imageNum == 51):
-            imgGen(51,101,img)
-        elif(imageNum == 101):
-            imgGen(101,151,img)
-        elif(imageNum == 151):
-            imgGen(151,201,img)
-        elif(imageNum == 201):
-            imgGen(201,251,img)
-        elif(imageNum == 251):
-            imgGen(251,301,img)
-        elif(imageNum == 301):
-            imgGen(301,351,img)
-        elif(imageNum == 351):
-            imgGen(351,401,img)
-        elif(imageNum == 401):
-            imgGen(401,451,img)
-        elif(imageNum == 451):
-            imgGen(451,501,img)
-        elif(imageNum == 501):
-            imgGen(501,551,img)
-        elif(imageNum == 551):
-            imgGen(551,601,img)
-        elif(imageNum == 601):
-            imgGen(601,651,img)
-        elif(imageNum == 651):
-            imgGen(651,701,img)
-        elif(imageNum == 701):
-            imgGen(701,751,img)
-        elif(imageNum == 751):
-            imgGen(751,801,img)
-        elif(imageNum == 801):
-            imgGen(801,851,img)
-        elif(imageNum == 851):
-            imgGen(851,901,img)
-        elif(imageNum == 901):
-            imgGen(901,951,img)
-        elif(imageNum == 951):
-            imgGen(951,1001,img)
+            imgGen(1,1001,img)
+        # elif(imageNum == 51):
+        #     imgGen(51,101,img)
+        # elif(imageNum == 101):
+        #     imgGen(101,151,img)
+        # elif(imageNum == 151):
+        #     imgGen(151,201,img)
+        # elif(imageNum == 201):
+        #     imgGen(201,251,img)
+        # elif(imageNum == 251):
+        #     imgGen(251,301,img)
+        # elif(imageNum == 301):
+        #     imgGen(301,351,img)
+        # elif(imageNum == 351):
+        #     imgGen(351,401,img)
+        # elif(imageNum == 401):
+        #     imgGen(401,451,img)
+        # elif(imageNum == 451):
+        #     imgGen(451,501,img)
+        # elif(imageNum == 501):
+        #     imgGen(501,551,img)
+        # elif(imageNum == 551):
+        #     imgGen(551,601,img)
+        # elif(imageNum == 601):
+        #     imgGen(601,651,img)
+        # elif(imageNum == 651):
+        #     imgGen(651,701,img)
+        # elif(imageNum == 701):
+        #     imgGen(701,751,img)
+        # elif(imageNum == 751):
+        #     imgGen(751,801,img)
+        # elif(imageNum == 801):
+        #     imgGen(801,851,img)
+        # elif(imageNum == 851):
+        #     imgGen(851,901,img)
+        # elif(imageNum == 901):
+        #     imgGen(901,951,img)
+        # elif(imageNum == 951):
+        #     imgGen(951,1001,img)
 
     
 

@@ -25,23 +25,27 @@ class Encoder(nn.Module):
         self.up1 = UpCk(in_channels=3, out_channels=64)
         self.up2 = UpCk(in_channels=64, out_channels=128)
         self.up3 = UpCk(in_channels=128, out_channels=256)
+        self.up4 = UpCk(in_channels=256, out_channels=512)
 
     def forward(self, x):
         x = self.up1(x)
         x = self.up2(x)
         x = self.up3(x)
+        x = self.up4(x)
         return x
 
 
 class Decoder(nn.Module):
     def __init__(self):
         super().__init__()
-        self.down1 = DownCk(in_channels=256, out_channels=128)
-        self.down2 = DownCk(in_channels=128, out_channels=64)
-        self.down3 = DownCk(in_channels=64, out_channels=1)
+        self.down2 = DownCk(in_channels=512, out_channels=256)
+        self.down3 = DownCk(in_channels=256, out_channels=128)
+        self.down4 = DownCk(in_channels=128, out_channels=64)
+        self.down5 = DownCk(in_channels=64, out_channels=1)
 
     def forward(self, x):
-        x = self.down1(x)
         x = self.down2(x)
         x = self.down3(x)
+        x = self.down4(x)
+        x = self.down5(x)
         return x

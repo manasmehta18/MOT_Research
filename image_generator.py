@@ -40,45 +40,45 @@ while True:
     # image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     if(imageNum == 1):
-        imgGen(1,51,image)
-    elif(imageNum == 51):
-        imgGen(51,101,image)
-    elif(imageNum == 101):
-        imgGen(101,151,image)
-    elif(imageNum == 151):
-        imgGen(151,201,image)
-    elif(imageNum == 201):
-        imgGen(201,251,image)
-    elif(imageNum == 251):
-        imgGen(251,301,image)
-    elif(imageNum == 301):
-        imgGen(301,351,image)
-    elif(imageNum == 351):
-        imgGen(351,401,image)
-    elif(imageNum == 401):
-        imgGen(401,451,image)
-    elif(imageNum == 451):
-        imgGen(451,501,image)
-    elif(imageNum == 501):
-        imgGen(501,551,image)
-    elif(imageNum == 551):
-        imgGen(551,601,image)
-    elif(imageNum == 601):
-        imgGen(601,651,image)
-    elif(imageNum == 651):
-        imgGen(651,701,image)
-    elif(imageNum == 701):
-        imgGen(701,751,image)
-    elif(imageNum == 751):
-        imgGen(751,801,image)
-    elif(imageNum == 801):
-        imgGen(801,851,image)
-    elif(imageNum == 851):
-        imgGen(851,901,image)
-    elif(imageNum == 901):
-        imgGen(901,951,image)
-    elif(imageNum == 951):
-        imgGen(951,1001,image)
+        imgGen(1,1001,image)
+    # elif(imageNum == 51):
+    #     imgGen(51,101,image)
+    # elif(imageNum == 101):
+    #     imgGen(101,151,image)
+    # elif(imageNum == 151):
+    #     imgGen(151,201,image)
+    # elif(imageNum == 201):
+    #     imgGen(201,251,image)
+    # elif(imageNum == 251):
+    #     imgGen(251,301,image)
+    # elif(imageNum == 301):
+    #     imgGen(301,351,image)
+    # elif(imageNum == 351):
+    #     imgGen(351,401,image)
+    # elif(imageNum == 401):
+    #     imgGen(401,451,image)
+    # elif(imageNum == 451):
+    #     imgGen(451,501,image)
+    # elif(imageNum == 501):
+    #     imgGen(501,551,image)
+    # elif(imageNum == 551):
+    #     imgGen(551,601,image)
+    # elif(imageNum == 601):
+    #     imgGen(601,651,image)
+    # elif(imageNum == 651):
+    #     imgGen(651,701,image)
+    # elif(imageNum == 701):
+    #     imgGen(701,751,image)
+    # elif(imageNum == 751):
+    #     imgGen(751,801,image)
+    # elif(imageNum == 801):
+    #     imgGen(801,851,image)
+    # elif(imageNum == 851):
+    #     imgGen(851,901,image)
+    # elif(imageNum == 901):
+    #     imgGen(901,951,image)
+    # elif(imageNum == 951):
+    #     imgGen(951,1001,image)
 
 
     k = cv2.waitKey(30) & 0xff  
