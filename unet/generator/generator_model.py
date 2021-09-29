@@ -13,9 +13,23 @@ class Generator(nn.Module):
         self.encoder = Encoder()
         self.decoder = Decoder()
 
+        self.lstm = nn.LSTM(input_size=15 * 20 * 512, hidden_size=64, num_layers=1)
+        self.linear = nn.Linear(64, 15 * 20 * 512)
+
     def forward(self, x):
         x = self.encoder(x)
+        x = rearrange(x, "t f h w -> t (f h w)")
+        x = x.unsqueeze(dim=1)
+        x = self.lstm(x)[0]
+        # x is [time, 1, features]
+
+        x = x.squeeze()
+        x = self.linear(x)
+
+        # [time, features, h, w]
+        x = rearrange(x, "t (f h w)-> t f h w", f=512, h=15, w=20)
         x = self.decoder(x)
+
         return x
 
 
