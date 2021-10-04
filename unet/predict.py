@@ -9,6 +9,7 @@ from PIL import Image
 from torchvision import transforms
 
 from unet import UNet
+from generator import Generator
 from utils.data_vis import plot_img_and_mask
 from utils.dataset import BasicDataset
 
@@ -107,7 +108,8 @@ if __name__ == "__main__":
     in_files = args.input
     out_files = get_output_filenames(args)
 
-    net = UNet(n_channels=3, n_classes=1)
+    # net = UNet(n_channels=3, n_classes=1)
+    net = Generator(n_channels=3, n_classes=1)
 
     logging.info("Loading model {}".format(args.model))
 
