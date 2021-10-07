@@ -14,20 +14,28 @@ imageNum = 0
 path = 'C:/Users/manas/Desktop/unet/Pytorch-UNet-1.0/YOOO/imgs'
 path1 = 'C:/Users/manas/Desktop/unet/Pytorch-UNet-1.0/YOOO/imgs1'
 
-def imgGen(min, max, img):
+def imgGen(i, img):
 
-    for i in range(min,max):
+    if (i < 10):
+        for k in range(0,10):
+            for j in range(0,10):
+                cv2.imwrite(os.path.join(path1 , '000'+ str(k) + str(j) + str(i) + '.jpg'), img)
+    elif (i == 10):
+        for k in range(0,10):
+            for j in range(0,10):
+                if(not(k == 0 and j == 0)):
+                    cv2.imwrite(os.path.join(path1 , '00'+ str(k) + str(j) + '0.jpg'), img)
 
-            if (i < 10):
-                cv2.imwrite(os.path.join(path1 , '00000'+ str(i) + '.jpg'), img)
-            elif (i >= 10 and i < 100):
-                cv2.imwrite(os.path.join(path1 , '0000'+ str(i) + '.jpg'), img)
-            elif (i >= 100 and i < 1000):
-                cv2.imwrite(os.path.join(path1 , '000'+ str(i) + '.jpg'), img)
-            elif (i >= 1000 and i < 10000):
-                cv2.imwrite(os.path.join(path1 , '00'+ str(i) + '.jpg'), img)
-            else:
-                cv2.imwrite(os.path.join(path1 , '0'+ str(i) + '.jpg'), img)
+        cv2.imwrite(os.path.join(path1 , '001000.jpg'), img)
+        
+    # elif (i >= 10 and i < 100):
+    #     cv2.imwrite(os.path.join(path1 , '0000'+ str(i) + '.jpg'), img)
+    # elif (i >= 100 and i < 1000):
+    #     cv2.imwrite(os.path.join(path1 , '000'+ str(i) + '.jpg'), img)
+    # elif (i >= 1000 and i < 10000):
+    #     cv2.imwrite(os.path.join(path1 , '00'+ str(i) + '.jpg'), img)
+    # else:
+    #     cv2.imwrite(os.path.join(path1 , '0'+ str(i) + '.jpg'), img)
 
     return
 
@@ -39,8 +47,10 @@ while True:
     image = imutils.resize(image, width=min(640, image.shape[1]))
     # image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-    if(imageNum == 1):
-        imgGen(1,1001,image)
+    imgGen(imageNum, image)
+
+    # if(imageNum == 1):
+    #     imgGen(1,1001,image)
     # elif(imageNum == 51):
     #     imgGen(51,101,image)
     # elif(imageNum == 101):
